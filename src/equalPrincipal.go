@@ -38,6 +38,12 @@ func main() {
 
 	var advancePaymentAmount = *_advancePaymentAmount
 
+	fmt.Printf("贷款额 %v\n", totalAmount)
+	fmt.Printf("还款期数 %v\n", count)
+	fmt.Printf("年利率 %v\n", monthlyInterestRate*12)
+	fmt.Printf("第几期提前还款 %v\n", earlyRepaymentPeriod)
+	fmt.Printf("设置提前还款金额 %v\n", advancePaymentAmount)
+
 	//总利息
 	var totalInterest float64 = 0
 
@@ -46,19 +52,11 @@ func main() {
 
 	var i float64 = 1
 
-	fmt.Printf("贷款额 %v\n", totalAmount)
-	fmt.Printf("还款期数 %v\n", count)
-	fmt.Printf("年利率 %v\n", monthlyInterestRate*12)
-	fmt.Printf("第几期提前还款 %v\n", earlyRepaymentPeriod)
-	fmt.Printf("设置提前还款金额 %v\n", advancePaymentAmount)
-
 	for ; i <= count; i++ {
-
 		if totalAmount <= repaidAmount {
 			fmt.Printf("月供供完啦！！！")
 			break
 		}
-
 		//当期需还利息
 		var currentInterest = (totalAmount - repaidAmount) * monthlyInterestRate
 
@@ -84,5 +82,4 @@ func main() {
 
 	fmt.Printf("总利息：%v\n", totalInterest)
 	fmt.Printf("已还本金：%v\n", repaidAmount)
-
 }

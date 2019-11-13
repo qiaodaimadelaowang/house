@@ -19,6 +19,14 @@ func WordCount(s string) map[string]int {
 	return m
 }
 
+func adder() func(int) int {
+	sum := 0
+	return func(x int) int {
+		sum += x
+		return sum
+	}
+}
+
 func main() {
 	count := WordCount("sdf a d a d d ads wo owo wo")
 	for k, v := range count {
